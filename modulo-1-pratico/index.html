@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/app.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/app.css" />
     <title>Document</title>
-</head>
-<body>
-
-    <div id="app">    
-        <span v-if="visible" :title="msg">{{msg}}</span>
+  </head>
+  <body>
+    <div id="app">
+         <h1 id="title-page" v-if="visible" :title="msg">{{msg}}</h1>
+      <div class="container">
+        <img
+          src="//hanashiro.github.io/pokedex/images/pokeball.svg"
+          class="pokeball-back"
+        />
+       
         <span v-show="!visible" :title="msg">{{msg}}</span>
 
-        <img src="//hanashiro.github.io/pokedex/images/pokeball.svg" class="pokeball-back" >
-        <input type="text" id="pokeFilter" placeholder="Search" maxlength="20" />
-        <ul class="poke-list" >
-            <li v-for="item in pokemonList" class="poke-list-item" >
-                <img :src="'//serebii.net/pokedex-xy/icon/'+item.number+'.png'" />
-                <span>{{item.number}} - {{item.name}}</span>
-            </li>
+        <input
+          type="text"
+          id="pokeFilter"
+          placeholder="Search"
+          maxlength="20"
+        />
+        <ul class="poke-list">
+          <li v-for="item in pokemonList" class="poke-list-item">
+            <img :src="'//serebii.net/pokedex-xy/icon/'+item.number+'.png'" />
+            <span>{{item.number}} - {{item.name}}</span>
+          </li>
         </ul>
-    <div v-html="htmlInsert"></div>
+        <div id="insert" v-html="htmlInsert"></div>
+      </div>
     </div>
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="js/app.js"></script>
-    
-</body>
+  </body>
 </html>
