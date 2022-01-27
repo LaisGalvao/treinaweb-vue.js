@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/app.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 id="title-page" v-if="visible" :title="msg">{{msg}}</h1>
+      <div class="container">
+        <img
+          src="//hanashiro.github.io/pokedex/images/pokeball.svg"
+          class="pokeball-back"
+        />
+
+        <span v-show="!visible" :title="msg">{{msg}}</span>
+
+        <input
+          type="text"
+          id="pokeFilter"
+          placeholder="Search"
+          maxlength="20"
+        />
+        <ul class="poke-list">
+          <my-list
+            v-for="item in pokemonList"
+            :pokemon="item"
+            :key="item.number"
+          ></my-list>
+        </ul>
+        <div id="insert" v-html="htmlInsert"></div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/list-component.js"></script>
+  </body>
+</html>
